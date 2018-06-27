@@ -1,0 +1,9 @@
+
+
+
+dependencies {
+    compile project(":util")
+    compile project(":notification")
+    compile project(":codis")
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-undertow'
+}

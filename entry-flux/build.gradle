@@ -1,0 +1,11 @@
+dependencies {
+    compile project(":util")
+    compile project(":codis")
+    compile project(":slice")
+    compile project(":webflux")
+    compile group: 'com.louis', name: 'ice.client', version: "${sicev}"
+    compile "org.springframework.boot:spring-boot-starter"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+
+}

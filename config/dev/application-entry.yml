@@ -1,0 +1,14 @@
+spring:
+  jmx:
+    enabled: false
+  profiles:
+    include: logging, redis2, db
+
+icebox:
+  name: thanos-entry
+  print-services-ready: entry service is ready
+  inherit-properties: 1
+  service:
+    com-thanos-service-entry-EntryServicePrx:
+      main: com.thanos.entry.impl.EntryService
+      endpoints: tcp -p 20003

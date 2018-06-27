@@ -1,0 +1,17 @@
+server:
+  port: 8082
+
+spring:
+  profiles:
+    include: logging, redis, codis
+
+oauth:
+  auth-pattern: /api/v1/oauth2/**
+  patterns: /api/**
+  excludes: /api/v1/test/**
+
+ice:
+  client:
+    enable-discovery-locator: false
+    endpoints:
+      com-thanos-service-entry-EntryServicePrx: tcp -p 20003

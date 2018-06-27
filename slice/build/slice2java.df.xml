@@ -1,0 +1,13 @@
+<state>
+  <timestamp value='1527497530721' />
+  <sourceSet name='default'>
+    <source name='E:\git\Thanos\slice\src\main\slice\entry\service.ice'>
+      <file name='E:\git\Thanos\slice\src\main\java\com\thanos\service\entry\_Marker.java' />
+      <file name='E:\git\Thanos\slice\src\main\java\com\thanos\service\entry\EntryService.java' />
+      <file name='E:\git\Thanos\slice\src\main\java\com\thanos\service\entry\EntryServicePrx.java' />
+      <file name='E:\git\Thanos\slice\src\main\java\com\thanos\service\entry\_EntryServicePrxI.java' />
+    </source>
+    <arg value='C:\Program Files\ZeroC\Ice-3.7.0\bin\slice2java.exe' />
+    <arg value='-IC:\Program Files\ZeroC\Ice-3.7.0\slice' />
+  </sourceSet>
+</state>

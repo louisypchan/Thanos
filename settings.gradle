@@ -1,0 +1,12 @@
+rootProject.name = 'Thanos'
+include 'entry'
+include 'db'
+include 'slice'
+include 'socket'
+include 'util'
+include 'entry-flux'
+include 'notification'
+include 'codis'
+include 'webflux'
+include 'cert'
+

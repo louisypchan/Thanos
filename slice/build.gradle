@@ -1,0 +1,5 @@
+apply plugin: "slice"
+
+slice{
+    output = file('src/main/java')
+}

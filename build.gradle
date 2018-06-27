@@ -1,0 +1,63 @@
+group 'com.thanos'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext {
+        springVersion = '2.0.1.RELEASE'
+        iceSliceVersion = '1.4.2'
+    }
+
+    repositories {
+        maven {
+            url "http://192.168.10.110:8081/nexus/content/repositories/releases/"
+        }
+        maven { url 'https://repo.spring.io/libs-milestone' }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springVersion}"
+        classpath "gradle.plugin.com.zeroc.gradle.ice-builder:slice:${iceSliceVersion}"
+    }
+}
+
+subprojects {
+    repositories {
+        maven {
+            url "http://192.168.10.110:8081/nexus/content/repositories/releases/"
+        }
+        maven { url 'https://repo.spring.io/libs-milestone' }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        mavenCentral()
+    }
+
+    ext {
+        sicev = '1.0.13'
+        iceVersion = '3.7.0'
+    }
+
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    sourceCompatibility = 1.8
+
+    version = '1.0.M1'
+
+    configurations {
+        all*.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+        compile.exclude module: 'spring-boot-starter-tomcat'
+    }
+
+    jar {
+        enabled = true
+    }
+
+    dependencies {
+        compile group: 'com.louis', name: 'ice.server', version: "${sicev}"
+    }
+}
