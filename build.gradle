@@ -3,7 +3,7 @@ version '1.0-SNAPSHOT'
 
 buildscript {
     ext {
-        springVersion = '2.0.1.RELEASE'
+        springVersion = '2.0.3.RELEASE'
         iceSliceVersion = '1.4.2'
     }
 
@@ -38,7 +38,7 @@ subprojects {
 
     ext {
         sicev = '1.0.13'
-        iceVersion = '3.7.0'
+        iceVersion = '3.7.1'
     }
 
     apply plugin: 'java'

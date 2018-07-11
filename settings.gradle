@@ -9,4 +9,5 @@ include 'notification'
 include 'codis'
 include 'webflux'
 include 'cert'
+include 'upload'
 

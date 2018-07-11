@@ -1,9 +1,9 @@
-package com.thanos;
+package com.thanos.model;
 
-
-import com.louis.ice.server.config.IceAutoConfiguration;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import jdk.nashorn.internal.ir.annotations.Ignore;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /****************************************************************************
  Copyright (c) 2017 Louis Y P Chen.
@@ -23,10 +23,20 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
-@SpringBootApplication
-public class EntryApplication {
-    public static void main(String ...args){
-        IceAutoConfiguration.args = args;
-        SpringApplication.run(EntryApplication.class, args);
-    }
+@Document
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class User {
+
+    @Id
+    private String uid;
+
+    //user id
+    //personal prefers cell phone
+    //org prefers email
+    private String userId;
+
+    @Ignore
+    private String password;
+
+
 }

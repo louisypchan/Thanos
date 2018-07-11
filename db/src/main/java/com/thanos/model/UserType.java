@@ -1,9 +1,4 @@
-package com.thanos;
-
-
-import com.louis.ice.server.config.IceAutoConfiguration;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+package com.thanos.model;
 
 /****************************************************************************
  Copyright (c) 2017 Louis Y P Chen.
@@ -23,10 +18,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
-@SpringBootApplication
-public class EntryApplication {
-    public static void main(String ...args){
-        IceAutoConfiguration.args = args;
-        SpringApplication.run(EntryApplication.class, args);
-    }
+public enum UserType {
+
 }
