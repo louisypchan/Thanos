@@ -34,7 +34,7 @@ public class Test {
 
         IceClientProperties iceClientProperties = new IceClientProperties();
         Map<String, String> endpoints = new HashMap<>();
-        endpoints.put("com-thanos-service-entry-EntryServicePrx", "tcp -p 20003");
+        endpoints.put("com-thanos-service.ice-entry-EntryServicePrx", "tcp -p 20003");
         iceClientProperties.setEndpoints(endpoints);
 
         Communicator communicator =  Util.initialize(args);

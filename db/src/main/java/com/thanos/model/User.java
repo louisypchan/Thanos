@@ -3,6 +3,8 @@ package com.thanos.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /****************************************************************************
@@ -30,6 +32,7 @@ public class User {
     @Id
     private String uid;
 
+    @Indexed
     //user id
     //personal prefers cell phone
     //org prefers email
@@ -37,6 +40,51 @@ public class User {
 
     @Ignore
     private String password;
+
+    // 0 - personal
+    // 1 - org
+    private int userType = 1; //by default
+
+
+    private PersonalInfo personalInfo;
+
+    private OrganizationInfo organizationInfo;
+
+    static public class PersonalInfo {
+        @TextIndexed String name;
+        String idNum;  //身份证
+        String fspoID; // the front side photo of ID
+        String bspoID;  // the back side photo of ID
+    }
+
+    static public class OrganizationInfo {
+        @TextIndexed String name; // 企业名称
+        String linked; //联系人
+        String linkedNum; //联系人手机号
+        /**
+         *  0 - 旅游行业
+         *  1 - 互联网/游戏/软件
+         *  2 - 电子/通信/硬件
+         *  3 - 房地产/建筑/物业
+         *  4 - 金融
+         *  5 - 消费品
+         *  6 - 汽车/机械/制造
+         *  7 - 制造/医疗
+         *  8 - 能源/化工/环保
+         *  9 - 服务/外包/中介
+         *  10 - 广告/传媒/教育/文化
+         *  11 - 交通/贸易/物流
+         *  12 - 政府/农林牧渔
+         *  13 - 其他
+         */
+        @Indexed
+        int type;
+
+
+    }
+
+    @Indexed
+    private int verified = 0;
 
 
 }
