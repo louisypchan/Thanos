@@ -18,38 +18,38 @@
 // </auto-generated>
 //
 
-package com.thanos.service.entry;
+package com.thanos.service.org;
 
-public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
+public interface OrgServicePrx extends com.zeroc.Ice.ObjectPrx
 {
-    default String login(String params)
+    default com.thanos.model.svc.Org getOrgInfo(String name)
     {
-        return login(params, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        return getOrgInfo(name, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default String login(String params, java.util.Map<String, String> context)
+    default com.thanos.model.svc.Org getOrgInfo(String name, java.util.Map<String, String> context)
     {
-        return _iceI_loginAsync(params, context, true).waitForResponse();
+        return _iceI_getOrgInfoAsync(name, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<java.lang.String> loginAsync(String params)
+    default java.util.concurrent.CompletableFuture<com.thanos.model.svc.Org> getOrgInfoAsync(String name)
     {
-        return _iceI_loginAsync(params, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_getOrgInfoAsync(name, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<java.lang.String> loginAsync(String params, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<com.thanos.model.svc.Org> getOrgInfoAsync(String name, java.util.Map<String, String> context)
     {
-        return _iceI_loginAsync(params, context, false);
+        return _iceI_getOrgInfoAsync(name, context, false);
     }
 
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_loginAsync(String iceP_params, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<com.thanos.model.svc.Org> _iceI_getOrgInfoAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "login", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<com.thanos.model.svc.Org> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getOrgInfo", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, ostr -> {
-                     ostr.writeString(iceP_params);
+                     ostr.writeString(iceP_name);
                  }, istr -> {
-                     String ret;
-                     ret = istr.readString();
+                     com.thanos.model.svc.Org ret;
+                     ret = com.thanos.model.svc.Org.ice_read(istr);
                      return ret;
                  });
         return f;
@@ -61,9 +61,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static EntryServicePrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
+    static OrgServicePrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), EntryServicePrx.class, _EntryServicePrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), OrgServicePrx.class, _OrgServicePrxI.class);
     }
 
     /**
@@ -73,9 +73,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static EntryServicePrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
+    static OrgServicePrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), EntryServicePrx.class, _EntryServicePrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), OrgServicePrx.class, _OrgServicePrxI.class);
     }
 
     /**
@@ -85,9 +85,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static EntryServicePrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
+    static OrgServicePrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), EntryServicePrx.class, _EntryServicePrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), OrgServicePrx.class, _OrgServicePrxI.class);
     }
 
     /**
@@ -98,9 +98,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static EntryServicePrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
+    static OrgServicePrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), EntryServicePrx.class, _EntryServicePrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), OrgServicePrx.class, _OrgServicePrxI.class);
     }
 
     /**
@@ -108,9 +108,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type.
      **/
-    static EntryServicePrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
+    static OrgServicePrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, EntryServicePrx.class, _EntryServicePrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, OrgServicePrx.class, _OrgServicePrxI.class);
     }
 
     /**
@@ -119,9 +119,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type.
      **/
-    static EntryServicePrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
+    static OrgServicePrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, EntryServicePrx.class, _EntryServicePrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, OrgServicePrx.class, _OrgServicePrxI.class);
     }
 
     /**
@@ -130,9 +130,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified per-proxy context.
      **/
     @Override
-    default EntryServicePrx ice_context(java.util.Map<String, String> newContext)
+    default OrgServicePrx ice_context(java.util.Map<String, String> newContext)
     {
-        return (EntryServicePrx)_ice_context(newContext);
+        return (OrgServicePrx)_ice_context(newContext);
     }
 
     /**
@@ -141,9 +141,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified adapter ID.
      **/
     @Override
-    default EntryServicePrx ice_adapterId(String newAdapterId)
+    default OrgServicePrx ice_adapterId(String newAdapterId)
     {
-        return (EntryServicePrx)_ice_adapterId(newAdapterId);
+        return (OrgServicePrx)_ice_adapterId(newAdapterId);
     }
 
     /**
@@ -152,9 +152,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified endpoints.
      **/
     @Override
-    default EntryServicePrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    default OrgServicePrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
     {
-        return (EntryServicePrx)_ice_endpoints(newEndpoints);
+        return (OrgServicePrx)_ice_endpoints(newEndpoints);
     }
 
     /**
@@ -163,9 +163,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified locator cache timeout.
      **/
     @Override
-    default EntryServicePrx ice_locatorCacheTimeout(int newTimeout)
+    default OrgServicePrx ice_locatorCacheTimeout(int newTimeout)
     {
-        return (EntryServicePrx)_ice_locatorCacheTimeout(newTimeout);
+        return (OrgServicePrx)_ice_locatorCacheTimeout(newTimeout);
     }
 
     /**
@@ -174,9 +174,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified invocation timeout.
      **/
     @Override
-    default EntryServicePrx ice_invocationTimeout(int newTimeout)
+    default OrgServicePrx ice_invocationTimeout(int newTimeout)
     {
-        return (EntryServicePrx)_ice_invocationTimeout(newTimeout);
+        return (OrgServicePrx)_ice_invocationTimeout(newTimeout);
     }
 
     /**
@@ -185,9 +185,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified caching policy.
      **/
     @Override
-    default EntryServicePrx ice_connectionCached(boolean newCache)
+    default OrgServicePrx ice_connectionCached(boolean newCache)
     {
-        return (EntryServicePrx)_ice_connectionCached(newCache);
+        return (OrgServicePrx)_ice_connectionCached(newCache);
     }
 
     /**
@@ -196,9 +196,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified endpoint selection policy.
      **/
     @Override
-    default EntryServicePrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    default OrgServicePrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
     {
-        return (EntryServicePrx)_ice_endpointSelection(newType);
+        return (OrgServicePrx)_ice_endpointSelection(newType);
     }
 
     /**
@@ -209,9 +209,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified selection policy.
      **/
     @Override
-    default EntryServicePrx ice_secure(boolean b)
+    default OrgServicePrx ice_secure(boolean b)
     {
-        return (EntryServicePrx)_ice_secure(b);
+        return (OrgServicePrx)_ice_secure(b);
     }
 
     /**
@@ -220,9 +220,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified encoding version.
      **/
     @Override
-    default EntryServicePrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    default OrgServicePrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
     {
-        return (EntryServicePrx)_ice_encodingVersion(e);
+        return (OrgServicePrx)_ice_encodingVersion(e);
     }
 
     /**
@@ -233,9 +233,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified selection policy.
      **/
     @Override
-    default EntryServicePrx ice_preferSecure(boolean b)
+    default OrgServicePrx ice_preferSecure(boolean b)
     {
-        return (EntryServicePrx)_ice_preferSecure(b);
+        return (OrgServicePrx)_ice_preferSecure(b);
     }
 
     /**
@@ -244,9 +244,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified router.
      **/
     @Override
-    default EntryServicePrx ice_router(com.zeroc.Ice.RouterPrx router)
+    default OrgServicePrx ice_router(com.zeroc.Ice.RouterPrx router)
     {
-        return (EntryServicePrx)_ice_router(router);
+        return (OrgServicePrx)_ice_router(router);
     }
 
     /**
@@ -255,9 +255,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified locator.
      **/
     @Override
-    default EntryServicePrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    default OrgServicePrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
     {
-        return (EntryServicePrx)_ice_locator(locator);
+        return (OrgServicePrx)_ice_locator(locator);
     }
 
     /**
@@ -266,9 +266,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified collocation optimization.
      **/
     @Override
-    default EntryServicePrx ice_collocationOptimized(boolean b)
+    default OrgServicePrx ice_collocationOptimized(boolean b)
     {
-        return (EntryServicePrx)_ice_collocationOptimized(b);
+        return (OrgServicePrx)_ice_collocationOptimized(b);
     }
 
     /**
@@ -276,9 +276,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses twoway invocations.
      **/
     @Override
-    default EntryServicePrx ice_twoway()
+    default OrgServicePrx ice_twoway()
     {
-        return (EntryServicePrx)_ice_twoway();
+        return (OrgServicePrx)_ice_twoway();
     }
 
     /**
@@ -286,9 +286,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses oneway invocations.
      **/
     @Override
-    default EntryServicePrx ice_oneway()
+    default OrgServicePrx ice_oneway()
     {
-        return (EntryServicePrx)_ice_oneway();
+        return (OrgServicePrx)_ice_oneway();
     }
 
     /**
@@ -296,9 +296,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses batch oneway invocations.
      **/
     @Override
-    default EntryServicePrx ice_batchOneway()
+    default OrgServicePrx ice_batchOneway()
     {
-        return (EntryServicePrx)_ice_batchOneway();
+        return (OrgServicePrx)_ice_batchOneway();
     }
 
     /**
@@ -306,9 +306,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses datagram invocations.
      **/
     @Override
-    default EntryServicePrx ice_datagram()
+    default OrgServicePrx ice_datagram()
     {
-        return (EntryServicePrx)_ice_datagram();
+        return (OrgServicePrx)_ice_datagram();
     }
 
     /**
@@ -316,9 +316,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses batch datagram invocations.
      **/
     @Override
-    default EntryServicePrx ice_batchDatagram()
+    default OrgServicePrx ice_batchDatagram()
     {
-        return (EntryServicePrx)_ice_batchDatagram();
+        return (OrgServicePrx)_ice_batchDatagram();
     }
 
     /**
@@ -327,9 +327,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified compression setting.
      **/
     @Override
-    default EntryServicePrx ice_compress(boolean co)
+    default OrgServicePrx ice_compress(boolean co)
     {
-        return (EntryServicePrx)_ice_compress(co);
+        return (OrgServicePrx)_ice_compress(co);
     }
 
     /**
@@ -338,9 +338,9 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified timeout.
      **/
     @Override
-    default EntryServicePrx ice_timeout(int t)
+    default OrgServicePrx ice_timeout(int t)
     {
-        return (EntryServicePrx)_ice_timeout(t);
+        return (OrgServicePrx)_ice_timeout(t);
     }
 
     /**
@@ -349,13 +349,13 @@ public interface EntryServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified connection ID.
      **/
     @Override
-    default EntryServicePrx ice_connectionId(String connectionId)
+    default OrgServicePrx ice_connectionId(String connectionId)
     {
-        return (EntryServicePrx)_ice_connectionId(connectionId);
+        return (OrgServicePrx)_ice_connectionId(connectionId);
     }
 
     static String ice_staticId()
     {
-        return "::entry::EntryService";
+        return "::org::OrgService";
     }
 }

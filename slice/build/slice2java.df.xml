@@ -1,11 +1,35 @@
 <state>
-  <timestamp value='1527497530721' />
+  <timestamp value='1532086287823' />
   <sourceSet name='default'>
-    <source name='E:\git\Thanos\slice\src\main\slice\entry\service.ice'>
-      <file name='E:\git\Thanos\slice\src\main\java\com\thanos\service\entry\_Marker.java' />
-      <file name='E:\git\Thanos\slice\src\main\java\com\thanos\service\entry\EntryService.java' />
-      <file name='E:\git\Thanos\slice\src\main\java\com\thanos\service\entry\EntryServicePrx.java' />
-      <file name='E:\git\Thanos\slice\src\main\java\com\thanos\service\entry\_EntryServicePrxI.java' />
+    <source name='F:\private\github\Thanos\slice\src\main\slice\entry\service.ice'>
+      <file name='F:\private\github\Thanos\slice\src\main\java\com\thanos\service\entry\_Marker.java' />
+      <file name='F:\private\github\Thanos\slice\src\main\java\com\thanos\service\entry\EntryService.java' />
+      <file name='F:\private\github\Thanos\slice\src\main\java\com\thanos\service\entry\EntryServicePrx.java' />
+      <file name='F:\private\github\Thanos\slice\src\main\java\com\thanos\service\entry\_EntryServicePrxI.java' />
+    </source>
+    <source name='F:\private\github\Thanos\slice\src\main\slice\org\org.ice'>
+      <file name='F:\private\github\Thanos\slice\src\main\java\com\thanos\model\svc\_Marker.java' />
+      <file name='F:\private\github\Thanos\slice\src\main\java\com\thanos\model\svc\RelatedPerson.java' />
+      <file name='F:\private\github\Thanos\slice\src\main\java\com\thanos\model\svc\Partner.java' />
+      <file name='F:\private\github\Thanos\slice\src\main\java\com\thanos\model\svc\ChangeRecord.java' />
+      <file name='F:\private\github\Thanos\slice\src\main\java\com\thanos\model\svc\Patent.java' />
+      <file name='F:\private\github\Thanos\slice\src\main\java\com\thanos\model\svc\Brand.java' />
+      <file name='F:\private\github\Thanos\slice\src\main\java\com\thanos\model\svc\CopyRight.java' />
+      <file name='F:\private\github\Thanos\slice\src\main\java\com\thanos\model\svc\Properties.java' />
+      <file name='F:\private\github\Thanos\slice\src\main\java\com\thanos\model\svc\Org.java' />
+      <file name='F:\private\github\Thanos\slice\src\main\java\com\thanos\model\svc\RelatedPersonSeqHelper.java' />
+      <file name='F:\private\github\Thanos\slice\src\main\java\com\thanos\model\svc\PartnerSeqHelper.java' />
+      <file name='F:\private\github\Thanos\slice\src\main\java\com\thanos\model\svc\BrandSeqHelper.java' />
+      <file name='F:\private\github\Thanos\slice\src\main\java\com\thanos\model\svc\CopyRightSeqHelper.java' />
+    </source>
+    <source name='F:\private\github\Thanos\slice\src\main\slice\org\service.ice'>
+      <file name='F:\private\github\Thanos\slice\src\main\java\com\thanos\service\org\_Marker.java' />
+      <file name='F:\private\github\Thanos\slice\src\main\java\com\thanos\service\org\OrgService.java' />
+      <file name='F:\private\github\Thanos\slice\src\main\java\com\thanos\service\org\OrgServicePrx.java' />
+      <file name='F:\private\github\Thanos\slice\src\main\java\com\thanos\service\org\_OrgServicePrxI.java' />
+    </source>
+    <source name='F:\private\github\Thanos\slice\src\main\slice\user\user.ice'>
+      <file name='F:\private\github\Thanos\slice\src\main\java\com\thanos\svc\user\_Marker.java' />
     </source>
     <arg value='C:\Program Files\ZeroC\Ice-3.7.0\bin\slice2java.exe' />
     <arg value='-IC:\Program Files\ZeroC\Ice-3.7.0\slice' />

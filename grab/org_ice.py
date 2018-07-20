@@ -26,10 +26,851 @@ import Ice, IcePy
 _M_svc = Ice.openModule('svc')
 __name__ = 'svc'
 
+if 'RelatedPerson' not in _M_svc.__dict__:
+    _M_svc.RelatedPerson = Ice.createTempClass()
+    class RelatedPerson(object):
+        def __init__(self, name='', title=''):
+            self.name = name
+            self.title = title
+
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + Ice.getHash(self.name)
+            _h = 5 * _h + Ice.getHash(self.title)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_svc.RelatedPerson):
+                return NotImplemented
+            else:
+                if self.name is None or other.name is None:
+                    if self.name != other.name:
+                        return (-1 if self.name is None else 1)
+                else:
+                    if self.name < other.name:
+                        return -1
+                    elif self.name > other.name:
+                        return 1
+                if self.title is None or other.title is None:
+                    if self.title != other.title:
+                        return (-1 if self.title is None else 1)
+                else:
+                    if self.title < other.title:
+                        return -1
+                    elif self.title > other.title:
+                        return 1
+                return 0
+
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
+
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
+
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
+
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
+
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
+
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_svc._t_RelatedPerson)
+
+        __repr__ = __str__
+
+    _M_svc._t_RelatedPerson = IcePy.defineStruct('::svc::RelatedPerson', RelatedPerson, (), (
+        ('name', (), IcePy._t_string),
+        ('title', (), IcePy._t_string)
+    ))
+
+    _M_svc.RelatedPerson = RelatedPerson
+    del RelatedPerson
+
+if 'Partner' not in _M_svc.__dict__:
+    _M_svc.Partner = Ice.createTempClass()
+    class Partner(object):
+        def __init__(self, name='', rate='', scc=''):
+            self.name = name
+            self.rate = rate
+            self.scc = scc
+
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + Ice.getHash(self.name)
+            _h = 5 * _h + Ice.getHash(self.rate)
+            _h = 5 * _h + Ice.getHash(self.scc)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_svc.Partner):
+                return NotImplemented
+            else:
+                if self.name is None or other.name is None:
+                    if self.name != other.name:
+                        return (-1 if self.name is None else 1)
+                else:
+                    if self.name < other.name:
+                        return -1
+                    elif self.name > other.name:
+                        return 1
+                if self.rate is None or other.rate is None:
+                    if self.rate != other.rate:
+                        return (-1 if self.rate is None else 1)
+                else:
+                    if self.rate < other.rate:
+                        return -1
+                    elif self.rate > other.rate:
+                        return 1
+                if self.scc is None or other.scc is None:
+                    if self.scc != other.scc:
+                        return (-1 if self.scc is None else 1)
+                else:
+                    if self.scc < other.scc:
+                        return -1
+                    elif self.scc > other.scc:
+                        return 1
+                return 0
+
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
+
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
+
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
+
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
+
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
+
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_svc._t_Partner)
+
+        __repr__ = __str__
+
+    _M_svc._t_Partner = IcePy.defineStruct('::svc::Partner', Partner, (), (
+        ('name', (), IcePy._t_string),
+        ('rate', (), IcePy._t_string),
+        ('scc', (), IcePy._t_string)
+    ))
+
+    _M_svc.Partner = Partner
+    del Partner
+
+if 'ChangeRecord' not in _M_svc.__dict__:
+    _M_svc.ChangeRecord = Ice.createTempClass()
+    class ChangeRecord(object):
+        def __init__(self, time='', category='', before='', after=''):
+            self.time = time
+            self.category = category
+            self.before = before
+            self.after = after
+
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + Ice.getHash(self.time)
+            _h = 5 * _h + Ice.getHash(self.category)
+            _h = 5 * _h + Ice.getHash(self.before)
+            _h = 5 * _h + Ice.getHash(self.after)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_svc.ChangeRecord):
+                return NotImplemented
+            else:
+                if self.time is None or other.time is None:
+                    if self.time != other.time:
+                        return (-1 if self.time is None else 1)
+                else:
+                    if self.time < other.time:
+                        return -1
+                    elif self.time > other.time:
+                        return 1
+                if self.category is None or other.category is None:
+                    if self.category != other.category:
+                        return (-1 if self.category is None else 1)
+                else:
+                    if self.category < other.category:
+                        return -1
+                    elif self.category > other.category:
+                        return 1
+                if self.before is None or other.before is None:
+                    if self.before != other.before:
+                        return (-1 if self.before is None else 1)
+                else:
+                    if self.before < other.before:
+                        return -1
+                    elif self.before > other.before:
+                        return 1
+                if self.after is None or other.after is None:
+                    if self.after != other.after:
+                        return (-1 if self.after is None else 1)
+                else:
+                    if self.after < other.after:
+                        return -1
+                    elif self.after > other.after:
+                        return 1
+                return 0
+
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
+
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
+
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
+
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
+
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
+
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_svc._t_ChangeRecord)
+
+        __repr__ = __str__
+
+    _M_svc._t_ChangeRecord = IcePy.defineStruct('::svc::ChangeRecord', ChangeRecord, (), (
+        ('time', (), IcePy._t_string),
+        ('category', (), IcePy._t_string),
+        ('before', (), IcePy._t_string),
+        ('after', (), IcePy._t_string)
+    ))
+
+    _M_svc.ChangeRecord = ChangeRecord
+    del ChangeRecord
+
+if 'Patent' not in _M_svc.__dict__:
+    _M_svc.Patent = Ice.createTempClass()
+    class Patent(object):
+        def __init__(self, publishDate='', name='', applyNo='', publishNo='', category=''):
+            self.publishDate = publishDate
+            self.name = name
+            self.applyNo = applyNo
+            self.publishNo = publishNo
+            self.category = category
+
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + Ice.getHash(self.publishDate)
+            _h = 5 * _h + Ice.getHash(self.name)
+            _h = 5 * _h + Ice.getHash(self.applyNo)
+            _h = 5 * _h + Ice.getHash(self.publishNo)
+            _h = 5 * _h + Ice.getHash(self.category)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_svc.Patent):
+                return NotImplemented
+            else:
+                if self.publishDate is None or other.publishDate is None:
+                    if self.publishDate != other.publishDate:
+                        return (-1 if self.publishDate is None else 1)
+                else:
+                    if self.publishDate < other.publishDate:
+                        return -1
+                    elif self.publishDate > other.publishDate:
+                        return 1
+                if self.name is None or other.name is None:
+                    if self.name != other.name:
+                        return (-1 if self.name is None else 1)
+                else:
+                    if self.name < other.name:
+                        return -1
+                    elif self.name > other.name:
+                        return 1
+                if self.applyNo is None or other.applyNo is None:
+                    if self.applyNo != other.applyNo:
+                        return (-1 if self.applyNo is None else 1)
+                else:
+                    if self.applyNo < other.applyNo:
+                        return -1
+                    elif self.applyNo > other.applyNo:
+                        return 1
+                if self.publishNo is None or other.publishNo is None:
+                    if self.publishNo != other.publishNo:
+                        return (-1 if self.publishNo is None else 1)
+                else:
+                    if self.publishNo < other.publishNo:
+                        return -1
+                    elif self.publishNo > other.publishNo:
+                        return 1
+                if self.category is None or other.category is None:
+                    if self.category != other.category:
+                        return (-1 if self.category is None else 1)
+                else:
+                    if self.category < other.category:
+                        return -1
+                    elif self.category > other.category:
+                        return 1
+                return 0
+
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
+
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
+
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
+
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
+
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
+
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_svc._t_Patent)
+
+        __repr__ = __str__
+
+    _M_svc._t_Patent = IcePy.defineStruct('::svc::Patent', Patent, (), (
+        ('publishDate', (), IcePy._t_string),
+        ('name', (), IcePy._t_string),
+        ('applyNo', (), IcePy._t_string),
+        ('publishNo', (), IcePy._t_string),
+        ('category', (), IcePy._t_string)
+    ))
+
+    _M_svc.Patent = Patent
+    del Patent
+
+if 'Brand' not in _M_svc.__dict__:
+    _M_svc.Brand = Ice.createTempClass()
+    class Brand(object):
+        def __init__(self, applyDate='', brand='', name='', registeredNo='', category='', status=''):
+            self.applyDate = applyDate
+            self.brand = brand
+            self.name = name
+            self.registeredNo = registeredNo
+            self.category = category
+            self.status = status
+
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + Ice.getHash(self.applyDate)
+            _h = 5 * _h + Ice.getHash(self.brand)
+            _h = 5 * _h + Ice.getHash(self.name)
+            _h = 5 * _h + Ice.getHash(self.registeredNo)
+            _h = 5 * _h + Ice.getHash(self.category)
+            _h = 5 * _h + Ice.getHash(self.status)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_svc.Brand):
+                return NotImplemented
+            else:
+                if self.applyDate is None or other.applyDate is None:
+                    if self.applyDate != other.applyDate:
+                        return (-1 if self.applyDate is None else 1)
+                else:
+                    if self.applyDate < other.applyDate:
+                        return -1
+                    elif self.applyDate > other.applyDate:
+                        return 1
+                if self.brand is None or other.brand is None:
+                    if self.brand != other.brand:
+                        return (-1 if self.brand is None else 1)
+                else:
+                    if self.brand < other.brand:
+                        return -1
+                    elif self.brand > other.brand:
+                        return 1
+                if self.name is None or other.name is None:
+                    if self.name != other.name:
+                        return (-1 if self.name is None else 1)
+                else:
+                    if self.name < other.name:
+                        return -1
+                    elif self.name > other.name:
+                        return 1
+                if self.registeredNo is None or other.registeredNo is None:
+                    if self.registeredNo != other.registeredNo:
+                        return (-1 if self.registeredNo is None else 1)
+                else:
+                    if self.registeredNo < other.registeredNo:
+                        return -1
+                    elif self.registeredNo > other.registeredNo:
+                        return 1
+                if self.category is None or other.category is None:
+                    if self.category != other.category:
+                        return (-1 if self.category is None else 1)
+                else:
+                    if self.category < other.category:
+                        return -1
+                    elif self.category > other.category:
+                        return 1
+                if self.status is None or other.status is None:
+                    if self.status != other.status:
+                        return (-1 if self.status is None else 1)
+                else:
+                    if self.status < other.status:
+                        return -1
+                    elif self.status > other.status:
+                        return 1
+                return 0
+
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
+
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
+
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
+
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
+
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
+
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_svc._t_Brand)
+
+        __repr__ = __str__
+
+    _M_svc._t_Brand = IcePy.defineStruct('::svc::Brand', Brand, (), (
+        ('applyDate', (), IcePy._t_string),
+        ('brand', (), IcePy._t_string),
+        ('name', (), IcePy._t_string),
+        ('registeredNo', (), IcePy._t_string),
+        ('category', (), IcePy._t_string),
+        ('status', (), IcePy._t_string)
+    ))
+
+    _M_svc.Brand = Brand
+    del Brand
+
+if 'CopyRight' not in _M_svc.__dict__:
+    _M_svc.CopyRight = Ice.createTempClass()
+    class CopyRight(object):
+        def __init__(self, approvalDate='', name='', cn='', registeredNo='', category='', version=''):
+            self.approvalDate = approvalDate
+            self.name = name
+            self.cn = cn
+            self.registeredNo = registeredNo
+            self.category = category
+            self.version = version
+
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + Ice.getHash(self.approvalDate)
+            _h = 5 * _h + Ice.getHash(self.name)
+            _h = 5 * _h + Ice.getHash(self.cn)
+            _h = 5 * _h + Ice.getHash(self.registeredNo)
+            _h = 5 * _h + Ice.getHash(self.category)
+            _h = 5 * _h + Ice.getHash(self.version)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_svc.CopyRight):
+                return NotImplemented
+            else:
+                if self.approvalDate is None or other.approvalDate is None:
+                    if self.approvalDate != other.approvalDate:
+                        return (-1 if self.approvalDate is None else 1)
+                else:
+                    if self.approvalDate < other.approvalDate:
+                        return -1
+                    elif self.approvalDate > other.approvalDate:
+                        return 1
+                if self.name is None or other.name is None:
+                    if self.name != other.name:
+                        return (-1 if self.name is None else 1)
+                else:
+                    if self.name < other.name:
+                        return -1
+                    elif self.name > other.name:
+                        return 1
+                if self.cn is None or other.cn is None:
+                    if self.cn != other.cn:
+                        return (-1 if self.cn is None else 1)
+                else:
+                    if self.cn < other.cn:
+                        return -1
+                    elif self.cn > other.cn:
+                        return 1
+                if self.registeredNo is None or other.registeredNo is None:
+                    if self.registeredNo != other.registeredNo:
+                        return (-1 if self.registeredNo is None else 1)
+                else:
+                    if self.registeredNo < other.registeredNo:
+                        return -1
+                    elif self.registeredNo > other.registeredNo:
+                        return 1
+                if self.category is None or other.category is None:
+                    if self.category != other.category:
+                        return (-1 if self.category is None else 1)
+                else:
+                    if self.category < other.category:
+                        return -1
+                    elif self.category > other.category:
+                        return 1
+                if self.version is None or other.version is None:
+                    if self.version != other.version:
+                        return (-1 if self.version is None else 1)
+                else:
+                    if self.version < other.version:
+                        return -1
+                    elif self.version > other.version:
+                        return 1
+                return 0
+
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
+
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
+
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
+
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
+
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
+
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_svc._t_CopyRight)
+
+        __repr__ = __str__
+
+    _M_svc._t_CopyRight = IcePy.defineStruct('::svc::CopyRight', CopyRight, (), (
+        ('approvalDate', (), IcePy._t_string),
+        ('name', (), IcePy._t_string),
+        ('cn', (), IcePy._t_string),
+        ('registeredNo', (), IcePy._t_string),
+        ('category', (), IcePy._t_string),
+        ('version', (), IcePy._t_string)
+    ))
+
+    _M_svc.CopyRight = CopyRight
+    del CopyRight
+
+if '_t_RelatedPersonSeq' not in _M_svc.__dict__:
+    _M_svc._t_RelatedPersonSeq = IcePy.defineSequence('::svc::RelatedPersonSeq', (), _M_svc._t_RelatedPerson)
+
+if '_t_PartnerSeq' not in _M_svc.__dict__:
+    _M_svc._t_PartnerSeq = IcePy.defineSequence('::svc::PartnerSeq', (), _M_svc._t_Partner)
+
+if '_t_BrandSeq' not in _M_svc.__dict__:
+    _M_svc._t_BrandSeq = IcePy.defineSequence('::svc::BrandSeq', (), _M_svc._t_Brand)
+
+if '_t_CopyRightSeq' not in _M_svc.__dict__:
+    _M_svc._t_CopyRightSeq = IcePy.defineSequence('::svc::CopyRightSeq', (), _M_svc._t_CopyRight)
+
+if '_t_stringReq' not in _M_svc.__dict__:
+    _M_svc._t_stringReq = IcePy.defineSequence('::svc::stringReq', (), IcePy._t_string)
+
+if 'Properties' not in _M_svc.__dict__:
+    _M_svc.Properties = Ice.createTempClass()
+    class Properties(object):
+        def __init__(self, pId='', patents=None, brands=None, copyRights=None):
+            self.pId = pId
+            self.patents = patents
+            self.brands = brands
+            self.copyRights = copyRights
+
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + Ice.getHash(self.pId)
+            if self.patents:
+                for _i0 in self.patents:
+                    _h = 5 * _h + Ice.getHash(_i0)
+            if self.brands:
+                for _i1 in self.brands:
+                    _h = 5 * _h + Ice.getHash(_i1)
+            if self.copyRights:
+                for _i2 in self.copyRights:
+                    _h = 5 * _h + Ice.getHash(_i2)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_svc.Properties):
+                return NotImplemented
+            else:
+                if self.pId is None or other.pId is None:
+                    if self.pId != other.pId:
+                        return (-1 if self.pId is None else 1)
+                else:
+                    if self.pId < other.pId:
+                        return -1
+                    elif self.pId > other.pId:
+                        return 1
+                if self.patents is None or other.patents is None:
+                    if self.patents != other.patents:
+                        return (-1 if self.patents is None else 1)
+                else:
+                    if self.patents < other.patents:
+                        return -1
+                    elif self.patents > other.patents:
+                        return 1
+                if self.brands is None or other.brands is None:
+                    if self.brands != other.brands:
+                        return (-1 if self.brands is None else 1)
+                else:
+                    if self.brands < other.brands:
+                        return -1
+                    elif self.brands > other.brands:
+                        return 1
+                if self.copyRights is None or other.copyRights is None:
+                    if self.copyRights != other.copyRights:
+                        return (-1 if self.copyRights is None else 1)
+                else:
+                    if self.copyRights < other.copyRights:
+                        return -1
+                    elif self.copyRights > other.copyRights:
+                        return 1
+                return 0
+
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
+
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
+
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
+
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
+
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
+
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_svc._t_Properties)
+
+        __repr__ = __str__
+
+    _M_svc._t_Properties = IcePy.defineStruct('::svc::Properties', Properties, (), (
+        ('pId', (), IcePy._t_string),
+        ('patents', (), _M_svc._t_PartnerSeq),
+        ('brands', (), _M_svc._t_BrandSeq),
+        ('copyRights', (), _M_svc._t_CopyRightSeq)
+    ))
+
+    _M_svc.Properties = Properties
+    del Properties
+
 if 'Org' not in _M_svc.__dict__:
     _M_svc.Org = Ice.createTempClass()
     class Org(object):
-        def __init__(self, name='', juridical='', uscc='', tin='', registerNumber='', code='', category='', ra='', region='', nub='', term='', addr='', doa='', scope=''):
+        def __init__(self, name='', juridical='', uscc='', tin='', registerNumber='', code='', category='', ra='', region='', nub='', term='', addr='', doa='', scope='', status='', founded='', period='', registeredCapital='', relatedPersons=None, partners=None, changeList=None, investment=None, subCompanies=None, properties=None):
             self.name = name
             self.juridical = juridical
             self.uscc = uscc
@@ -44,6 +885,16 @@ if 'Org' not in _M_svc.__dict__:
             self.addr = addr
             self.doa = doa
             self.scope = scope
+            self.status = status
+            self.founded = founded
+            self.period = period
+            self.registeredCapital = registeredCapital
+            self.relatedPersons = relatedPersons
+            self.partners = partners
+            self.changeList = changeList
+            self.investment = investment
+            self.subCompanies = subCompanies
+            self.properties = properties
 
         def __hash__(self):
             _h = 0
@@ -61,6 +912,28 @@ if 'Org' not in _M_svc.__dict__:
             _h = 5 * _h + Ice.getHash(self.addr)
             _h = 5 * _h + Ice.getHash(self.doa)
             _h = 5 * _h + Ice.getHash(self.scope)
+            _h = 5 * _h + Ice.getHash(self.status)
+            _h = 5 * _h + Ice.getHash(self.founded)
+            _h = 5 * _h + Ice.getHash(self.period)
+            _h = 5 * _h + Ice.getHash(self.registeredCapital)
+            if self.relatedPersons:
+                for _i0 in self.relatedPersons:
+                    _h = 5 * _h + Ice.getHash(_i0)
+            if self.partners:
+                for _i1 in self.partners:
+                    _h = 5 * _h + Ice.getHash(_i1)
+            if self.changeList:
+                for _i2 in self.changeList:
+                    _h = 5 * _h + Ice.getHash(_i2)
+            if self.investment:
+                for _i3 in self.investment:
+                    _h = 5 * _h + Ice.getHash(_i3)
+            if self.subCompanies:
+                for _i4 in self.subCompanies:
+                    _h = 5 * _h + Ice.getHash(_i4)
+            if self.properties:
+                for _i5 in self.properties:
+                    _h = 5 * _h + Ice.getHash(_i5)
             return _h % 0x7fffffff
 
         def __compare(self, other):
@@ -181,6 +1054,86 @@ if 'Org' not in _M_svc.__dict__:
                         return -1
                     elif self.scope > other.scope:
                         return 1
+                if self.status is None or other.status is None:
+                    if self.status != other.status:
+                        return (-1 if self.status is None else 1)
+                else:
+                    if self.status < other.status:
+                        return -1
+                    elif self.status > other.status:
+                        return 1
+                if self.founded is None or other.founded is None:
+                    if self.founded != other.founded:
+                        return (-1 if self.founded is None else 1)
+                else:
+                    if self.founded < other.founded:
+                        return -1
+                    elif self.founded > other.founded:
+                        return 1
+                if self.period is None or other.period is None:
+                    if self.period != other.period:
+                        return (-1 if self.period is None else 1)
+                else:
+                    if self.period < other.period:
+                        return -1
+                    elif self.period > other.period:
+                        return 1
+                if self.registeredCapital is None or other.registeredCapital is None:
+                    if self.registeredCapital != other.registeredCapital:
+                        return (-1 if self.registeredCapital is None else 1)
+                else:
+                    if self.registeredCapital < other.registeredCapital:
+                        return -1
+                    elif self.registeredCapital > other.registeredCapital:
+                        return 1
+                if self.relatedPersons is None or other.relatedPersons is None:
+                    if self.relatedPersons != other.relatedPersons:
+                        return (-1 if self.relatedPersons is None else 1)
+                else:
+                    if self.relatedPersons < other.relatedPersons:
+                        return -1
+                    elif self.relatedPersons > other.relatedPersons:
+                        return 1
+                if self.partners is None or other.partners is None:
+                    if self.partners != other.partners:
+                        return (-1 if self.partners is None else 1)
+                else:
+                    if self.partners < other.partners:
+                        return -1
+                    elif self.partners > other.partners:
+                        return 1
+                if self.changeList is None or other.changeList is None:
+                    if self.changeList != other.changeList:
+                        return (-1 if self.changeList is None else 1)
+                else:
+                    if self.changeList < other.changeList:
+                        return -1
+                    elif self.changeList > other.changeList:
+                        return 1
+                if self.investment is None or other.investment is None:
+                    if self.investment != other.investment:
+                        return (-1 if self.investment is None else 1)
+                else:
+                    if self.investment < other.investment:
+                        return -1
+                    elif self.investment > other.investment:
+                        return 1
+                if self.subCompanies is None or other.subCompanies is None:
+                    if self.subCompanies != other.subCompanies:
+                        return (-1 if self.subCompanies is None else 1)
+                else:
+                    if self.subCompanies < other.subCompanies:
+                        return -1
+                    elif self.subCompanies > other.subCompanies:
+                        return 1
+                if self.properties is None or other.properties is None:
+                    if self.properties != other.properties:
+                        return (-1 if self.properties is None else 1)
+                else:
+                    if self.properties < other.properties:
+                        return -1
+                    elif self.properties > other.properties:
+                        return 1
                 return 0
 
         def __lt__(self, other):
@@ -244,7 +1197,17 @@ if 'Org' not in _M_svc.__dict__:
         ('term', (), IcePy._t_string),
         ('addr', (), IcePy._t_string),
         ('doa', (), IcePy._t_string),
-        ('scope', (), IcePy._t_string)
+        ('scope', (), IcePy._t_string),
+        ('status', (), IcePy._t_string),
+        ('founded', (), IcePy._t_string),
+        ('period', (), IcePy._t_string),
+        ('registeredCapital', (), IcePy._t_string),
+        ('relatedPersons', (), _M_svc._t_RelatedPersonSeq),
+        ('partners', (), _M_svc._t_PartnerSeq),
+        ('changeList', (), _M_svc._t_stringReq),
+        ('investment', (), _M_svc._t_stringReq),
+        ('subCompanies', (), _M_svc._t_stringReq),
+        ('properties', (), _M_svc._t_stringReq)
     ))
 
     _M_svc.Org = Org

@@ -18,9 +18,8 @@
 // </auto-generated>
 //
 
-package com.thanos.service.entry;
+package com.thanos.service.org;
 
-public class _EntryServicePrxI extends com.zeroc.Ice._ObjectPrxI implements EntryServicePrx
+interface _Marker
 {
-    public static final long serialVersionUID = 0L;
 }

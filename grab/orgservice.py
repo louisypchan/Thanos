@@ -160,6 +160,9 @@ class OrgServiceI(org.OrgService):
 				tds = tr.find_all("td")
 				relatedPerson[self.sub(tds[1].a.get_text("|", strip=True))] = self.sub(tds[2].get_text("|", strip=True))
 			print(relatedPerson)
+
+			#股东信息
+			
 				
 
 o = OrgServiceI()

@@ -18,16 +18,16 @@
 // </auto-generated>
 //
 
-package com.thanos.service.entry;
+package com.thanos.service.org;
 
-public interface EntryService extends com.zeroc.Ice.Object
+public interface OrgService extends com.zeroc.Ice.Object
 {
-    String login(String params, com.zeroc.Ice.Current current);
+    com.thanos.model.svc.Org getOrgInfo(String name, com.zeroc.Ice.Current current);
 
     static final String[] _iceIds =
     {
         "::Ice::Object",
-        "::entry::EntryService"
+        "::org::OrgService"
     };
 
     @Override
@@ -44,30 +44,30 @@ public interface EntryService extends com.zeroc.Ice.Object
 
     static String ice_staticId()
     {
-        return "::entry::EntryService";
+        return "::org::OrgService";
     }
 
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_login(EntryService obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getOrgInfo(OrgService obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        String iceP_params;
-        iceP_params = istr.readString();
+        String iceP_name;
+        iceP_name = istr.readString();
         inS.endReadParams();
-        String ret = obj.login(iceP_params, current);
+        com.thanos.model.svc.Org ret = obj.getOrgInfo(iceP_name, current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeString(ret);
+        com.thanos.model.svc.Org.ice_write(ostr, ret);
         inS.endWriteParams(ostr);
         return inS.setResult(ostr);
     }
 
     final static String[] _iceOps =
     {
+        "getOrgInfo",
         "ice_id",
         "ice_ids",
         "ice_isA",
-        "ice_ping",
-        "login"
+        "ice_ping"
     };
 
     @Override
@@ -84,23 +84,23 @@ public interface EntryService extends com.zeroc.Ice.Object
         {
             case 0:
             {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+                return _iceD_getOrgInfo(this, in, current);
             }
             case 1:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
             }
             case 2:
             {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
             }
             case 3:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
             }
             case 4:
             {
-                return _iceD_login(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
             }
         }
 
