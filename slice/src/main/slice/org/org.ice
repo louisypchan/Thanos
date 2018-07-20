@@ -1,6 +1,11 @@
 [["java:package:com.thanos.model"]]
 module svc {
 
+    struct RelatedPerson {
+        string name;
+        string title; //职位
+    }
+
     struct Org {
         string name;
         string juridical; //法人
@@ -23,6 +28,6 @@ module svc {
 
         string registeredCapital; //注册资本
 
-        
+
     };
 };
