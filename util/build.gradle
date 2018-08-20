@@ -1,6 +1,6 @@
 ext {
-    iTextVersion = '7.1.2'
-    html2pdfVersion = '2.0.2'
+    iTextVersion = '7.1.3'
+    html2pdfVersion = '2.1.0'
 }
 
 dependencies {
@@ -21,7 +21,7 @@ dependencies {
     compile group: 'com.itextpdf', name: 'font-asian', version: "${iTextVersion}"
     compile group: 'com.itextpdf', name: 'barcodes', version: "${iTextVersion}"
     //signatures
-    compile group: 'com.itextpdf', name: 'typography', version: "${iTextVersion}"
+    compile group: 'com.itextpdf', name: 'typography', version: "2.0.1"
     compile group: 'com.itextpdf', name: 'sign', version: "${iTextVersion}"
 
 
