@@ -20,8 +20,10 @@ dependencies {
 
     compile group: 'com.itextpdf', name: 'font-asian', version: "${iTextVersion}"
     compile group: 'com.itextpdf', name: 'barcodes', version: "${iTextVersion}"
-
     //signatures
+    compile group: 'com.itextpdf', name: 'typography', version: "${iTextVersion}"
+    compile group: 'com.itextpdf', name: 'sign', version: "${iTextVersion}"
+
 
 
     compile ("com.itextpdf:html2pdf:${html2pdfVersion}") {

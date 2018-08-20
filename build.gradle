@@ -9,7 +9,7 @@ buildscript {
 
     repositories {
         maven {
-            url "http://127.0.0.1:8081/repository/maven-releases/"
+            url "http://192.168.7.108:8081/repository/maven-releases/"
         }
         maven { url 'https://repo.spring.io/libs-milestone' }
         maven {
@@ -27,7 +27,7 @@ buildscript {
 subprojects {
     repositories {
         maven {
-            url "http://127.0.0.1:8081/repository/maven-releases/"
+            url "http://192.168.7.108:8081/repository/maven-releases/"
         }
         maven { url 'https://repo.spring.io/libs-milestone' }
         maven {
