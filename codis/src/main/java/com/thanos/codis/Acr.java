@@ -2,8 +2,6 @@ package com.thanos.codis;
 
 import io.lettuce.core.resource.DefaultClientResources;
 import io.netty.util.concurrent.Future;
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
 
 /****************************************************************************
  Copyright (c) 2017 Louis Y P Chen.
