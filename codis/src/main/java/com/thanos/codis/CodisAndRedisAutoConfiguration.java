@@ -73,7 +73,7 @@ public class CodisAndRedisAutoConfiguration extends RedisAutoConfiguration {
 
     @Bean(name = "redisTemplate")
     @Override
-    public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) throws UnknownHostException {
+    public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
         RedisTemplate<Object, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(redisConnectionFactory);
         return template;
@@ -81,21 +81,21 @@ public class CodisAndRedisAutoConfiguration extends RedisAutoConfiguration {
 
     @Bean(name = "stringRedisTemplate")
     @Override
-    public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory redisConnectionFactory) throws UnknownHostException {
+    public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
         StringRedisTemplate template = new StringRedisTemplate();
         template.setConnectionFactory(redisConnectionFactory);
         return template;
     }
 
     @Bean(name = "codisTemplate")
-    public RedisTemplate<Object, Object> codisTemplate(Lcc lcc) throws UnknownHostException {
+    public RedisTemplate<Object, Object> codisTemplate(Lcc lcc) {
         RedisTemplate<Object, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(lcc.getLettuceConnectionFactory());
         return template;
     }
 //
     @Bean(name = "stringCodisTemplate")
-    public StringRedisTemplate stringCodisTemplate(Lcc lcc) throws UnknownHostException {
+    public StringRedisTemplate stringCodisTemplate(Lcc lcc) {
         StringRedisTemplate template = new StringRedisTemplate();
         template.setConnectionFactory(lcc.getLettuceConnectionFactory());
         return template;

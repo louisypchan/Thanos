@@ -42,6 +42,8 @@ public enum ErrorEnum {
 
     CAST_ERROR(10008, "对象数据转化错误"),
 
+    TIMESTAMP_NOT_FOUND(10009, "timestamp参数不能为空"),
+
     NO_SUCH_METHOD(90000, ""),
 
     CLASS_NOT_FOUND(90001, ""),

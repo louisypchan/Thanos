@@ -34,7 +34,6 @@ import org.springframework.web.reactive.config.EnableWebFlux;
 @EnableWebFlux
 @EnableIceClient
 @EnableHttpClient
-//@EnableThanosFilter
 @Import({CodisAndRedisAutoConfiguration.class})
 public class EntryFluxConfiguration {
 

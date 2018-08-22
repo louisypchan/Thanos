@@ -1,6 +1,7 @@
 package com.thanos.webflux.filter;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.thanos.common.Utils;
 import com.thanos.common.error.ErrorEnum;
 import com.thanos.common.redis.StringRedis;
@@ -8,7 +9,6 @@ import com.thanos.webflux.Util;
 import com.thanos.webflux.config.OAuthPatternProperties;
 import com.thanos.webflux.impl.DefaultAuthenticationEntryPoint;
 import com.thanos.webflux.interf.AuthenticationEntryPoint;
-import com.thanos.webflux.svc.Channel;
 import org.springframework.http.server.RequestPath;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.web.server.ServerWebExchange;
@@ -65,10 +65,11 @@ public class WebfluxWebFilter implements WebFilter {
                     .flatMap(s -> Mono.justOrEmpty(stringRedis.get(Util.CHANNEL_CACHE_NAMESPACE + s))
                             .switchIfEmpty(Util.error(ErrorEnum.APP_ID_ILLEGAL.getKey(), ErrorEnum.APP_ID_ILLEGAL.getValue()))
                             .flatMap(s1 -> {
-                                Channel channel = JSON.parseObject(s1, Channel.class);
-                                return channel.getIpWhiteList() == null || "0".equals(channel.getIpWhiteList()) ?
+                                JSONObject obj = JSON.parseObject(s1);
+                                String ipWhiteList = obj.getString("iPWhiteList");
+                                return ipWhiteList == null || "0".equals(ipWhiteList) ?
                                         chain.filter(exchange) :
-                                        (Arrays.stream(channel.getIpWhiteList().split(",")).anyMatch(str -> str.equals(Util.getIpAddr(request))) ? chain.filter(exchange) : Mono.empty());
+                                        (Arrays.stream(ipWhiteList.split(",")).anyMatch(str -> str.equals(Util.getIpAddr(request))) ? chain.filter(exchange) : Mono.empty());
                             }))
                     .switchIfEmpty(Util.error(ErrorEnum.IP_ILLEGAL.getKey(), ErrorEnum.IP_ILLEGAL.getValue()))
                     .onErrorResume(ValidationException.class, e -> entryPoint.commence(exchange, e));

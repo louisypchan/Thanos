@@ -51,7 +51,7 @@ public class DefaultHandler {
         return request.bodyToMono(clz)
                 .flatMap(t -> {
                     List<String> headers = request.headers().header(Util.THANOS_SESSION);
-                    if(headers != null && headers.size() > 0){
+                    if(headers.size() > 0){
                         Method method = null;
                         try {
                             method = t.getClass().getMethod("setToken", String.class);
@@ -75,7 +75,7 @@ public class DefaultHandler {
         newMap.putAll(map);
         newMap.putAll(request.queryParams().toSingleValueMap());
         boolean needToValidate = false;
-        if(headers != null && headers.size() > 0){
+        if(headers.size() > 0){
             newMap.put("token", headers.get(0));
             newMap.put("nonce", request.headers().header(Util.NONCE).get(0));
             needToValidate = true;
@@ -110,6 +110,7 @@ public class DefaultHandler {
             }
             values[i++] = value;
         }
+        if(timestamp == null) return Util.error(ErrorEnum.TIMESTAMP_NOT_FOUND.getKey(), ErrorEnum.TIMESTAMP_NOT_FOUND.getValue());
         //check sign
         //check whether the timestamp is expired or not
         if(System.currentTimeMillis() - Long.valueOf(timestamp) > Util.TIMESTAMP_EXPIRED * 1000){
