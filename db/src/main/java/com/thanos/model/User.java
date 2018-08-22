@@ -1,7 +1,7 @@
 package com.thanos.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.index.TextIndexed;
@@ -38,7 +38,7 @@ public class User {
     //org prefers email
     private String userId;
 
-    @Ignore
+    @JsonIgnore
     private String password;
 
     // 0 - personal

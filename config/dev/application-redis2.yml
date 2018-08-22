@@ -1,4 +1,5 @@
+#redis standalone
 spring:
   redis:
-    host: 192.168.10.208
-    port: 45000
+    host: 192.168.7.105
+    port: 6379

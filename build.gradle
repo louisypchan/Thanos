@@ -43,7 +43,7 @@ subprojects {
     }
 
     ext {
-        sicev = '1.0.1.RELEASE'
+        sicev = '1.0.0.RELEASE'
         iceVersion = '3.7.1'
     }
 
@@ -64,6 +64,6 @@ subprojects {
     }
 
     dependencies {
-        compile group: 'com.zd.louis', name: 'ice.server', version: "${sicev}"
+        compile group: 'com.louis', name: 'ice.server', version: "${sicev}"
     }
 }
