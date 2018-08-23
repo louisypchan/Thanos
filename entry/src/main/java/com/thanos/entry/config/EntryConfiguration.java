@@ -1,8 +1,7 @@
 package com.thanos.entry.config;
 
 
-import com.louis.ice.server.anno.EnableIceBox;
-import com.louis.ice.server.config.InjectionBeans;
+import com.gdca.ice.server.anno.EnableIceBox;
 import com.thanos.common.http.anno.EnableHttpClient;
 import com.thanos.common.redis.StringRedis;
 import org.springframework.beans.factory.annotation.Autowired;
