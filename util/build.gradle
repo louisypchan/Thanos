@@ -11,6 +11,9 @@ dependencies {
     compile group:'com.github.qcloudsms', name:'qcloudsms', version: '1.0.2'
 
 
+    //cryptographic algorithms
+    compile group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: '1.60'
+
     //iText 7
     compile group: 'com.itextpdf', name: 'kernel', version : "${iTextVersion}"
     compile group: 'com.itextpdf', name: 'layout', version:  "${iTextVersion}"

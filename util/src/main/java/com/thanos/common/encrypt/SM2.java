@@ -1,14 +1,6 @@
-package com.thanos.entryflux.repository;
-
-import com.louis.ice.client.IceClient2;
-import com.thanos.entryflux.body.LoginBody;
-import com.thanos.service.entry.EntryServicePrx;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-import reactor.core.publisher.Mono;
-
+package com.thanos.common.encrypt;
 /****************************************************************************
- Copyright (c) 2017 Louis Y P Chen.
+ Copyright (c) 2018 Louis Y P Chen.
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
@@ -25,15 +17,6 @@ import reactor.core.publisher.Mono;
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
-@Repository
-public class EntryRepository {
+public class SM2 {
 
-    @Autowired
-    private IceClient2 iceClient2;
-
-    public Mono<LoginBody> login(LoginBody loginBody){
-        EntryServicePrx entryServicePrx = iceClient2.getService(EntryServicePrx.class);
-        System.out.println(entryServicePrx.login(null));
-        return Mono.justOrEmpty(loginBody);
-    }
 }
