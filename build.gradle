@@ -9,7 +9,7 @@ buildscript {
 
     repositories {
         maven {
-            url "http://192.168.7.108:8081/repository/maven-releases/"
+            url "http://192.168.7.11:8081/repository/maven-releases/"
         }
         maven {
             url "https://repo.itextsupport.com/releases/"
@@ -30,7 +30,7 @@ buildscript {
 subprojects {
     repositories {
         maven {
-            url "http://192.168.7.108:8081/repository/maven-releases/"
+            url "http://192.168.7.11:8081/repository/maven-releases/"
         }
         maven {
             url "https://repo.itextsupport.com/releases/"
